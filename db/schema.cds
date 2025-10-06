@@ -40,7 +40,22 @@ entity Incidents : cuid, managed {
     author    : type of managed:createdBy;
     message   : String;
   };
+  tasks : Composition of many IncidentTasks on tasks.incident = $self;
 }
+
+entity IncidentTasks : cuid, managed {
+  incident : Association to Incidents;
+  title    : String @title: 'Task Title';
+  description : String;
+  steps    : Composition of many TaskSteps on steps.task = $self;
+}
+
+entity TaskSteps : cuid, managed {
+  task     : Association to IncidentTasks;
+  title    : String @title: 'Step Title';
+  details  : String;
+}
+
 
 entity Status : CodeList {
   key code    : String enum {

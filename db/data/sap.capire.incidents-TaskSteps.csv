@@ -1,0 +1,8 @@
+ID,task_ID,title,details
+46d89327-749b-4d07-b443-5717622db4a4,3583f982-d7df-4aad-ab26-301d4a157cd5,Check panel,Verify physical damage and take photos
+8ceda406-06a0-4b6e-9e45-6f72f040cd78,3583f982-d7df-4aad-ab26-301d4a157cd5,Test output,Measure electrical output
+8ceda406-06a0-4b6e-9e45-6f72f040cd75,3583f982-d7df-4aad-ab26-301d4a157cd6,Contact supplier,Send order request
+4ceda406-06a0-4b6e-9e45-6f72f040cd78,3583f982-d7df-4aad-ab26-301d4a157cd6,Confirm delivery,Track shipment and confirm arrival
+8cfda406-06a0-4b6e-9e45-6f72f040cd78,3583f982-d7df-4aad-ab26-301d4a157ca5,Remove broken panel,Uninstall damaged panel
+8ceda406-06a0-4b6e-9e45-6f72f04dcd78,3583f982-d7df-4aad-ab26-301d4a157ca5,Install new panel,Mount and connect new panel
+8ceda436-06a0-4b6e-9e45-6f72f040cd78,3583f982-d7df-4aad-ab26-301d4a157ca5,Test installation,Verify output and system status

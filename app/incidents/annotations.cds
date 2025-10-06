@@ -2,7 +2,14 @@ using ProcessorService as service from '../../srv/processor-service';
 using from '../../db/schema';
 
 annotate service.Customers with @title : '{i18n>Customer}';
-annotate service.Incidents with @title : '{i18n>Incident}';
+annotate service.Incidents with @(
+    title : '{i18n>Incident}',
+    UI.FieldGroup #Tasks : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+        ],
+    },
+);
 annotate service.Incidents with @odata.draft.enabled;
 
 annotate service.Incidents with @(
@@ -70,6 +77,12 @@ annotate service.Incidents with @(
       Label : '{i18n>Conversation}',
       ID : 'i18nConversation',
       Target : 'conversation/@UI.LineItem#i18nConversation1',
+    },
+    {
+        $Type : 'UI.ReferenceFacet',
+        Label : 'Tasks',
+        ID : 'Tasks',
+        Target : 'tasks/@UI.LineItem#Tasks1',
     },
   ]
 );
@@ -180,3 +193,58 @@ annotate service.Incidents.conversation with @(
       Label : '{i18n>Message}',
     },]
 );
+annotate service.IncidentTasks with @(
+    UI.LineItem #i18nTasks : [
+    ],
+    UI.LineItem #Tasks : [
+    ],
+    UI.LineItem #Tasks1 : [
+        {
+            $Type : 'UI.DataField',
+            Value : ID,
+            Label : 'ID',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : title,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : description,
+            Label : 'Description',
+        },
+    ],
+    UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Steps',
+            ID : 'Steps',
+            Target : 'steps/@UI.LineItem#Steps',
+        },
+    ],
+    UI.FieldGroup #Steps : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+        ],
+    },
+);
+
+annotate service.TaskSteps with @(
+    UI.LineItem #Steps : [
+        {
+            $Type : 'UI.DataField',
+            Value : ID,
+            Label : 'ID',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : title,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : details,
+            Label : 'Details',
+        },
+    ]
+);
+
