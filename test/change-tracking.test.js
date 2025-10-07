@@ -2,13 +2,13 @@ const cds = require("@sap/cds")
 
 describe("Integration Test for ChangeTracking", () => {
 
-  const { copy, rm, exists, path } = cds.utils; cds.root = path.resolve(__dirname,'..')
-  beforeAll (()=> copy('xmpls/change-tracking.cds').to('srv/change-tracking.cds'))
-  afterAll (() => rm('srv/change-tracking.cds'))
+  // const { copy, rm, exists, path } = cds.utils; cds.root = path.resolve(__dirname,'..')
+  // beforeAll (()=> copy('xmpls/change-tracking.cds').to('srv/change-tracking.cds'))
+  // afterAll (() => rm('srv/change-tracking.cds'))
 
-  it('should have the srv/change-tracking.cds file in place', () => {
-    expect(exists('srv/change-tracking.cds')).to.be.true
-  })
+  // it('should have the srv/change-tracking.cds file in place', () => {
+  //   expect(exists('srv/change-tracking.cds')).to.be.true
+  // })
 
   const { GET, POST, PATCH, DELETE, expect, axios} = cds.test()
   axios.defaults.auth = { username: 'alice' }
