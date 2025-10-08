@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "dependencies": {
     "@sap/cds": ">=8",
-    "express": "^4"
+    "@cap-js/change-tracking": "git+https://github.com/stefanrudi/change-tracking#feat/hana-trigger",
+    "express": "^4",
+    "@cap-js/hana": "^2",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
-    "@cap-js/attachments": "^2",
-    "@cap-js/audit-logging": ">=0.8.3",
     "@cap-js/cds-test": "*",
-    "@cap-js/change-tracking": "*",
-    "@cap-js/sqlite": ">=1"
+    "@cap-js/sqlite": ">=1",
+    "@sap/cds-dk": ">=8"
   },
   "scripts": {
     "watch": "cds watch",
@@ -21,5 +22,14 @@
   "sapux": [
     "app/incidents"
   ],
-  "private": true
+  "private": true,
+  "cds": {
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "html5-runtime": true,
+      "portal": true
+    }
+  }
 }
